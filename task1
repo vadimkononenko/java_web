@@ -1,0 +1,61 @@
+create table developer
+(
+    id   bigint,
+    name varchar(30) not null,
+    age  int,
+    sex  varchar(3)  not null,
+    primary key (id)
+);
+
+create table skill
+(
+    id          bigint,
+    industry    varchar(30) not null,
+    skill_level varchar(30) not null,
+    primary key (id)
+);
+
+create table project
+(
+    id   bigint,
+    name varchar(30) not null,
+    primary key (id)
+);
+
+create table company
+(
+    id      bigint,
+    company varchar(30) not null,
+    primary key (id)
+);
+
+create table customer
+(
+    id       bigint,
+    customer varchar(30),
+    primary key (id)
+);
+
+create table developer_project
+(
+    developer_id bigint,
+    project_id   bigint,
+    foreign key (developer_id) references developer,
+    foreign key (project_id) references project
+);
+
+create table developer_skill
+(
+    developer_id bigint,
+    skill_id     bigint,
+    foreign key (developer_id) references developer,
+    foreign key (skill_id) references skill
+);
+
+create table company_customer
+(
+    company_id  bigint,
+    customer_id bigint,
+    foreign key (company_id) references company,
+    foreign key (customer_id) references customer
+);
