@@ -1,0 +1,44 @@
+-- 1
+
+alter table developer
+    add salary int;
+
+-- 2
+
+select p.id, p.name
+from project as p
+         inner join developer_project as dp on p.id = dp.project_id
+         inner join developer d on dp.developer_id = d.id
+group by p.id, dp.developer_id, dp.project_id, d.id
+order by sum(d.salary) desc
+limit 1;
+
+--3
+
+select sum(d.salary)
+from developer as d
+         inner join developer_skill ds on d.id = ds.developer_id
+         inner join skill as s on ds.skill_id = s.id
+where s.industry = 'Java';
+
+--4
+
+alter table project
+    add cost int;
+
+--5
+
+select id, name
+from project
+order by cost
+limit 1;
+
+--6
+
+select avg(d.salary)
+from developer as d
+         inner join developer_project dp on d.id = dp.developer_id
+         inner join project p on dp.project_id = p.id
+group by p.cost
+having min(p.cost) = p.cost
+limit 1;
