@@ -15,7 +15,7 @@ public class PetRequestsTest {
     private static Logger log;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         petRequests = new PetRequests();
         log = Logger.getLogger(PetRequests.class);
     }

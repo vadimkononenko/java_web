@@ -2,7 +2,6 @@ package com.itea.homeworks.hw3.requests;
 
 import com.google.gson.Gson;
 import com.itea.homeworks.hw3.models.Order;
-import com.itea.homeworks.hw3.models.Pet;
 import org.apache.log4j.Logger;
 
 import java.io.DataOutputStream;

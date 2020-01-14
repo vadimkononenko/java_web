@@ -15,7 +15,7 @@ public class OrderRequestsTest {
     private OrderRequests orderRequests;
 
     @Before
-    public void SetUp() {
+    public void setUp() {
         log = Logger.getLogger(OrderRequests.class);
         orderRequests = new OrderRequests();
     }
